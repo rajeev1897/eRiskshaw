@@ -1,0 +1,393 @@
+<!--
+  ~ Copyright (c) 2015-present, Parse, LLC.
+  ~ All rights reserved.
+  ~
+  ~ This source code is licensed under the BSD-style license found in the
+  ~ LICENSE file in the root directory of this source tree. An additional grant
+  ~ of patent rights can be found in the PATENTS file in the same directory.
+  -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/AppTheme"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/backGround"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/loginLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:outlineProvider="paddedBounds"
+        app:srcCompat="@drawable/bg" />
+
+    <LinearLayout
+        android:id="@+id/loginLayout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignLeft="@+id/backGround"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/backGround"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <EditText
+            android:id="@+id/loginPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/cast_expanded_controller_text_color"
+            android:ems="10"
+            android:hint="Phone Number"
+            android:inputType="number"
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textColorHint="@color/cast_expanded_controller_text_color"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/loginWithPassword"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:text="Login with Password"
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/loginOTPGenerator"
+            android:layout_width="200dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/cast_expanded_controller_text_color"
+            android:onClick="loginOTP"
+            android:text="Generate OTP"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/signupUserText"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:onClick="signupUserDetails"
+            android:text="Register Here "
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/loginOTPLayout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignLeft="@+id/backGround"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/backGround"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/loginOTP"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/cast_expanded_controller_text_color"
+            android:ems="10"
+            android:hint="Enter OTP"
+            android:inputType="number"
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textColorHint="@color/cast_expanded_controller_text_color"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/loginOTPButton"
+            android:layout_width="200dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/cast_expanded_controller_text_color"
+            android:onClick="loginUser"
+            android:text="Login"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/signupOTPUserText"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:onClick="signupUserDetails"
+            android:text="Register Here "
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/loginPasswordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignLeft="@+id/backGround"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/backGround"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/loginPassword"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/cast_expanded_controller_text_color"
+            android:ems="10"
+            android:hint="Enter password"
+            android:inputType="textPassword"
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textColorHint="@color/cast_expanded_controller_text_color"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/loginPasswordButton"
+            android:layout_width="200dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/cast_expanded_controller_text_color"
+            android:onClick="loginUser"
+            android:text="Login"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/signupPasswordUserText"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:onClick="signupUserDetails"
+            android:text="Register Here "
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/userSignupLayout"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_alignLeft="@+id/backGround"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/backGround"
+        android:layout_marginBottom="150dp"
+        android:layout_marginTop="2dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/signupUsername"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/cast_expanded_controller_text_color"
+            android:ems="10"
+            android:hint="username"
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textColorHint="@color/cast_expanded_controller_text_color"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/signupPassword"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="2dp"
+            android:backgroundTint="@color/cast_expanded_controller_text_color"
+            android:ems="10"
+            android:hint="password"
+            android:inputType="textPassword"
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textColorHint="@color/cast_expanded_controller_text_color"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/signupConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="2dp"
+            android:backgroundTint="@color/cast_expanded_controller_text_color"
+            android:ems="10"
+            android:hint="confirm password"
+            android:inputType="textPassword"
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textColorHint="@color/cast_expanded_controller_text_color"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/signupPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="2dp"
+            android:backgroundTint="@color/cast_expanded_controller_text_color"
+            android:ems="10"
+            android:hint="Phone Number"
+            android:inputType="number"
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textColorHint="@color/cast_expanded_controller_text_color"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/signupPincode"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="2dp"
+            android:backgroundTint="@color/cast_expanded_controller_text_color"
+            android:ems="10"
+            android:hint="city or pincode"
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textColorHint="@color/cast_expanded_controller_text_color"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/vechileSignupLayout"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_alignLeft="@+id/backGround"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/backGround"
+        android:layout_marginBottom="150dp"
+        android:layout_marginTop="2dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/signupNumberPlate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/cast_expanded_controller_text_color"
+            android:ems="10"
+            android:hint="Number Plate"
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textColorHint="@color/cast_expanded_controller_text_color"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/signupVechileName"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="2dp"
+            android:backgroundTint="@color/cast_expanded_controller_text_color"
+            android:ems="10"
+            android:hint="Vechile Name"
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textColorHint="@color/cast_expanded_controller_text_color"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/signupModelNumber"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="2dp"
+            android:backgroundTint="@color/cast_expanded_controller_text_color"
+            android:ems="10"
+            android:hint="Model Number"
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textColorHint="@color/cast_expanded_controller_text_color"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/signupLicenceNumber"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="2dp"
+            android:backgroundTint="@color/cast_expanded_controller_text_color"
+            android:ems="10"
+            android:hint="Licence Number"
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textColorHint="@color/cast_expanded_controller_text_color"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/signupVechileStatus"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="2dp"
+            android:backgroundTint="@color/cast_expanded_controller_text_color"
+            android:ems="10"
+            android:hint="Vechile Status"
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textColorHint="@color/cast_expanded_controller_text_color"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/registerText"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentTop="false"
+        android:layout_marginLeft="100dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="30dp"
+        android:text="Register Here"
+        android:textAlignment="center"
+        android:textColor="@color/cast_expanded_controller_text_color"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="450dp"
+        android:background="@color/cast_expanded_controller_text_color"
+        android:onClick="registerUser"
+        android:text="next"
+        android:textAlignment="textEnd"
+        android:textAllCaps="false"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_above="@+id/userSignupLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:background="@color/cast_expanded_controller_text_color"
+        android:onClick="backRegister"
+        android:text=" Back"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignEnd="@+id/registerText"
+        android:layout_alignRight="@+id/registerText"
+        android:layout_alignTop="@+id/backButton"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        app:srcCompat="@drawable/logo" />
+
+
+</RelativeLayout>
